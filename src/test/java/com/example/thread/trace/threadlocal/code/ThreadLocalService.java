@@ -16,7 +16,7 @@ public class ThreadLocalService {
 //    ThreadLocal 사용법
 //    값 저장: ThreadLocal.set(xxx)
 //    값 조회: ThreadLocal.get()
-//    값 제거: ThreadLocal.remove()
+//    값 제거: ThreadLocal.remove()    rr
 
     public String logic(String name) {
         log.info("저장 name={} -> nameStore={}", name, nameStore.get());
