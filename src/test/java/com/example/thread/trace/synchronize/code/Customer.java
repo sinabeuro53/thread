@@ -1,7 +1,8 @@
-package com.example.thread.trace.synchronize;
+package com.example.thread.trace.synchronize.code;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * packageName  :   com.example.thread.trace.synchronize
@@ -12,6 +13,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Customer implements Runnable {
     private Table table;
     private String food;

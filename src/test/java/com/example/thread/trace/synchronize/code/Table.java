@@ -1,6 +1,7 @@
-package com.example.thread.trace.synchronize;
+package com.example.thread.trace.synchronize.code;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * packageName  :   com.example.thread.trace.synchronize
@@ -25,10 +26,10 @@ public class Table {
         }
         dishes.add(dish);
         notify();
-        System.out.println("Dishes:" + dishNames.toString());
+        System.out.println("Dishes:" + dishes.toString());
     }
 
-    public void remove(String dishName) {
+    public boolean remove(String dishName) {
         synchronized (this) {
             String name = Thread.currentThread().getName();
 
@@ -45,7 +46,7 @@ public class Table {
                     if(dishName.equals(dishes.get(i))) {
                         dishes.remove(i);
                         notify();
-                        return;
+                        return false;
                     }
                 } // for문의 끝
                 try {
