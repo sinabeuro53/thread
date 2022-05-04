@@ -1,10 +1,8 @@
 package com.example.thread.trace.bankBook.core;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * packageName  :   com.example.thread.trace.bankBook.core
@@ -13,25 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
  * date         :   2022-05-03
  * description  :
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
 public class DepositThread implements Runnable {
 
-    private BankBook bankBook;
+    private final BankBook bankBook;
 
     @Override
     public void run() {
         String name = Thread.currentThread().getName();
-        while(true) {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {}
-
-            log.info("{} (입금 스레드)", name);
-            bankBook.deposit();
-        }
-
+        log.info("{} (입금 스레드)", name);
+        bankBook.deposit();
     }
 }

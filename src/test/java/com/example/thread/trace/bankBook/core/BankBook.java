@@ -9,21 +9,30 @@ package com.example.thread.trace.bankBook.core;
  */
 public class BankBook {
 
-    int accountMoney = 0;
-    
-    // 출금
-    public void withdraw() {
-        int randomNumber = (int) Math.ceil(Math.random() * 10)*100; // 100~1000 자연수
-        if(accountMoney > 0) {
-            accountMoney -= randomNumber;
-        }
-        System.out.println("[출금] 남은 금액: " + accountMoney);
-    }
-    
+    private int balance = 0;    // 남은 금액
+
     // 입금
     public void deposit() {
-        accountMoney += 400;
-        System.out.println("[입금] 남은 금액: " + accountMoney);
+        while(true) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {}
+            balance += 400;
+            System.out.println("[입금] 남은 금액: " + balance);
+        }
     }
 
+    // 출금
+    public void withdraw() {
+        while(true) {
+            int randomMoney = (int) Math.ceil(Math.random() * 10)*100; // 100~1000 자연수
+            if(balance >= randomMoney) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {}
+                balance -= randomMoney;
+                System.out.println("[출금] 남은 금액: " + balance);
+            }
+        }
+    }
 }

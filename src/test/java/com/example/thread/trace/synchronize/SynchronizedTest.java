@@ -22,17 +22,17 @@ public class SynchronizedTest {
 
     @Test
     public void synchronizeTest() throws InterruptedException {
-        ThreadGroup myGroup = new ThreadGroup("myGroup");
+//        ThreadGroup myGroup = new ThreadGroup("myGroup");
 
-        Thread thread1 = new Thread(myGroup, new Cook(table), "COOK1");
-        Thread thread2 = new Thread(myGroup, new Customer(table, "donut"), "CUST1");
-        Thread thread3 = new Thread(myGroup, new Customer(table, "burger"), "CUST2");
+        Thread thread1 = new Thread(new Cook(table), "COOK1");
+        Thread thread2 = new Thread(new Customer(table, "donut"), "CUST1");
+        Thread thread3 = new Thread(new Customer(table, "burger"), "CUST2");
         thread1.start();
         thread2.start();
         thread3.start();
 
-        Hashtable hashtable = new Hashtable();
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+//        Hashtable hashtable = new Hashtable();
+//        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
 
 
         Thread.sleep(5000);
