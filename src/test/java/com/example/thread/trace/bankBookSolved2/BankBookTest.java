@@ -1,10 +1,9 @@
-package com.example.thread.trace.bankBook;
+package com.example.thread.trace.bankBookSolved2;
 
-import com.example.thread.trace.bankBook.core.BankBook;
-import com.example.thread.trace.bankBook.core.DepositThread;
-import com.example.thread.trace.bankBook.core.WithdrawThread;
+import com.example.thread.trace.bankBookSolved2.core.BankBook;
+import com.example.thread.trace.bankBookSolved2.core.DepositThread;
+import com.example.thread.trace.bankBookSolved2.core.WithdrawThread;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * packageName  :   com.example.thread.trace.bankBook

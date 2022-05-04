@@ -1,10 +1,9 @@
-package com.example.thread.trace.bankBook;
+package com.example.thread.trace.bankBookSolved;
 
-import com.example.thread.trace.bankBook.core.BankBook;
-import com.example.thread.trace.bankBook.core.DepositThread;
-import com.example.thread.trace.bankBook.core.WithdrawThread;
+import com.example.thread.trace.bankBookSolved.core.BankBook;
+import com.example.thread.trace.bankBookSolved.core.DepositThread;
+import com.example.thread.trace.bankBookSolved.core.WithdrawThread;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * packageName  :   com.example.thread.trace.bankBook
@@ -19,14 +18,17 @@ public class BankBookTest {
 
     @Test
     public void test() throws InterruptedException {
-        Thread depositThread = new Thread(new DepositThread(bankBook));
-        depositThread.setName("deposit Thread  ");
+        Thread depositThread1 = new Thread(new DepositThread(bankBook));
+        depositThread1.setName("deposit Thread1");
+        Thread depositThread2 = new Thread(new DepositThread(bankBook));
+        depositThread2.setName("deposit Thread2");
         Thread withdrawThread1 = new Thread(new WithdrawThread(bankBook));
         withdrawThread1.setName("withdraw Thread1");
         Thread withdrawThread2 = new Thread(new WithdrawThread(bankBook));
         withdrawThread2.setName("withdraw Thread2");
 
-        depositThread.start();
+        depositThread1.start();
+        depositThread2.start();
         withdrawThread1.start();
         Thread.sleep(100);
         withdrawThread2.start();
