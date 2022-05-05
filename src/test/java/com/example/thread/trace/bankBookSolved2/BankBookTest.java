@@ -26,7 +26,7 @@ public class BankBookTest {
         withdrawThread2.setName("withdraw Thread2");
 
         depositThread.start();
-        withdrawThread1.start();
+        withdrawThread1.start(); 
         Thread.sleep(100);
         withdrawThread2.start();
 
