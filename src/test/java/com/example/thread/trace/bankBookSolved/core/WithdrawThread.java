@@ -20,6 +20,8 @@ public class WithdrawThread implements Runnable {
     public void run() {
         String name = Thread.currentThread().getName();
         log.info("{} (출금 스레드)", name);
-        bankBook.withdraw();
+        ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>();
+        bankBook.withdraw(threadLocal);
+        threadLocal.remove();
     }
 }

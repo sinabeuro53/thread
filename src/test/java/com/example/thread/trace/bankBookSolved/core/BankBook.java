@@ -10,12 +10,12 @@ package com.example.thread.trace.bankBookSolved.core;
 public class BankBook {
 
     private int balance = 500;    // 남은 금액
-    private ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>();
 
     // 입금
-    public void deposit() {
+    public void deposit(ThreadLocal<Integer> threadLocal) {
         String name = Thread.currentThread().getName();
         threadLocal.set(balance);
+
         while(true) {
             try {
                 Thread.sleep(100);
@@ -26,7 +26,7 @@ public class BankBook {
     }
 
     // 출금
-    public void withdraw() {
+    public void withdraw(ThreadLocal<Integer> threadLocal) {
         String name = Thread.currentThread().getName();
         threadLocal.set(balance);
         while(true) {

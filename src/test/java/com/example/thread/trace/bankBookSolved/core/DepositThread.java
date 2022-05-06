@@ -20,6 +20,8 @@ public class DepositThread implements Runnable {
     public void run() {
         String name = Thread.currentThread().getName();
         log.info("{} (입금 스레드)", name);
-        bankBook.deposit();
+        ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>();
+        bankBook.deposit(threadLocal);
+        threadLocal.remove();
     }
 }
