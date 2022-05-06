@@ -19,7 +19,7 @@ public class BankBookTest {
     @Test
     public void test() throws InterruptedException {
         Thread depositThread = new Thread(new DepositThread(bankBook));
-        depositThread.setName("deposit Thread  ");
+        depositThread.setName("deposit Thread  "); 
         Thread withdrawThread1 = new Thread(new WithdrawThread(bankBook));
         withdrawThread1.setName("withdraw Thread1");
         Thread withdrawThread2 = new Thread(new WithdrawThread(bankBook));
